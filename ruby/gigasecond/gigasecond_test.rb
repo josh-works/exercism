@@ -2,8 +2,6 @@
 gem 'minitest', '>= 5.0.0'
 require 'minitest/autorun'
 require_relative 'gigasecond'
-require 'minitest/reporters'
-Minitest::Reporters.use!
 
 # Test data version: 9049dc7
 

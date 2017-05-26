@@ -1,21 +1,30 @@
-  # Raindrops
+# Grains
 
-Write a program that converts a number to a string, the contents of which depend on the number's factors.
+Calculate the number of grains of wheat on a chessboard given that the number on each square doubles.
 
-- If the number has 3 as a factor, output 'Pling'.
-- If the number has 5 as a factor, output 'Plang'.
-- If the number has 7 as a factor, output 'Plong'.
-- If the number does not have 3, 5, or 7 as a factor,
-  just pass the number's digits straight through.
+There once was a wise servant who saved the life of a prince. The king
+promised to pay whatever the servant could dream up. Knowing that the
+king loved chess, the servant told the king he would like to have grains
+of wheat. One grain on the first square of a chess board. Two grains on
+the next. Four on the third, and so on.
 
-## Examples
+There are 64 squares on a chessboard.
 
-- 28's factors are 1, 2, 4, **7**, 14, 28.
-  - In raindrop-speak, this would be a simple "Plong".
-- 30's factors are 1, 2, **3**, **5**, 6, 10, 15, 30.
-  - In raindrop-speak, this would be a "PlingPlang".
-- 34 has four factors: 1, 2, 17, and 34.
-  - In raindrop-speak, this would be "34".
+Write code that shows:
+- how many grains were on each square, and
+- the total number of grains
+
+
+## For bonus points
+
+Did you get the tests passing and the code clean? If you want to, these
+are some additional things you could try:
+
+- Optimize for speed.
+- Optimize for readability.
+
+Then please share your thoughts in a comment on the submission. Did this
+experiment make the code better? Worse? Did you learn anything from it?
 
 * * * *
 
@@ -48,7 +57,7 @@ run it like this:
 
 ## Source
 
-A variation on a famous interview question intended to weed out potential candidates. [http://jumpstartlab.com](http://jumpstartlab.com)
+JavaRanch Cattle Drive, exercise 6 [http://www.javaranch.com/grains.jsp](http://www.javaranch.com/grains.jsp)
 
 ## Submitting Incomplete Problems
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.

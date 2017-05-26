@@ -1,15 +1,11 @@
-class BookKeeping
-  VERSION = 5
-end
-
 class Gigasecond
 
-require 'pry'
-
-  def self.from(args)
-    puts args
-    giga = args + 1000000000
-    return giga
+  def self.from(time)
+    time + 1000000000
   end
 
+end
+
+class BookKeeping
+  VERSION = 5
 end

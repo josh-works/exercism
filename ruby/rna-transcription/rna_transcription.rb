@@ -1,27 +1,18 @@
-class BookKeeping
-  VERSION = 4
+module DnaComplements
+  COMPLEMENTS = {G: "C", C: "G", T: "A", A: "U"}
 end
 
 class Complement
-  RNA_COMPLEMENT = {
-    'G' => 'C',
-    'C' => 'G',
-    'T' => 'A',
-    'A' => 'U'
-    }
+  include DnaComplements
 
-    def self.of_dna(dna)
-      if /[^GCTA]+/ =~ dna
-        return '' # signifies invalid input
-      end
-      array = dna.split('')
-      results = []
-      array.each do |char|
-        results.push(RNA_COMPLEMENT[char])
-      end
-      return results.join
+  def self.of_dna(dna)
+    return '' if /[^GCTA]/ =~ dna
+    dna.split('').reduce('') do |output, char|
+      output + COMPLEMENTS[char.to_sym]
     end
+  end
+end
 
-
-
+class BookKeeping
+  VERSION = 4
 end

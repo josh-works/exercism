@@ -2,8 +2,8 @@
 gem 'minitest', '>= 5.0.0'
 require 'minitest/autorun'
 require_relative 'hamming'
-require 'minitest/reporters'
-Minitest::Reporters.use!
+
+
 
 # Test data version:
 # deb225e Implement canonical dataset for scrabble-score problem (#255)

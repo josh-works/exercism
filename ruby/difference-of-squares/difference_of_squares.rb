@@ -1,32 +1,24 @@
-class BookKeeping
-  VERSION = 3
-end
-
 class Squares
+  attr_reader :num
 
-  def initialize(number)
-    @number = number
+  def initialize(num)
+    @num = num
   end
 
   def square_of_sum
-    while @number == 0
-      return 0
-    end
-    (1..@number).to_a.inject(:+) ** 2
+    return 0 if num == 0
+    (1..num).reduce(:+) ** 2
   end
 
   def sum_of_squares
-    while @number == 0
-      return 0
-    end
-    (1..@number).to_a.inject { |sum, n| sum + n ** 2 }
+    (1..num).reduce(0) { |sum, num| sum + num ** 2 }
   end
 
   def difference
-    a = Squares.new(@number).square_of_sum
-    b = Squares.new(@number).sum_of_squares
-    return a - b
-
+    square_of_sum - sum_of_squares
   end
+end
 
+class BookKeeping
+  VERSION = 3
 end

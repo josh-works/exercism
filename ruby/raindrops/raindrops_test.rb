@@ -13,12 +13,10 @@ class RaindropsTest < Minitest::Test
   end
 
   def test_3
-
     assert_equal 'Pling', Raindrops.convert(3)
   end
 
   def test_5
-
     assert_equal 'Plang', Raindrops.convert(5)
   end
 
