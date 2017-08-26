@@ -1,12 +1,10 @@
+require 'pry'
+
 class Pangram
 
   def self.pangram?(phrase)
-    letters = phrase.downcase.gsub(/[^a-z]/, '').split('').sort.uniq
-    if letters.count == 26
-      return true
-    else
-      return false
-    end
+    phrase.split('').sort.uniq.join.gsub(/[^a-z]/i, '').count
+    binding.pry
   end
 end
 
