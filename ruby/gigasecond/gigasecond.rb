@@ -1,10 +1,11 @@
 class Gigasecond
 
-  def self.from(time)
-    time + 1000000000
+  def self.from(start_date)
+    Time.at(start_date) + 1000000000
   end
 
 end
+
 
 class BookKeeping
   VERSION = 5
