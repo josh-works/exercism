@@ -1,28 +1,32 @@
+require 'pry'
+
 class Prime
 
-  def self.nth(num)
-    validate(num)
-    primes = []
-    i = 2
-    until primes.count == num
-      primes << i if prime?(i)
-      i += 1
+  def self.nth(number)
+    raise ArgumentError if number == 0
+    counter = 2
+    current_number = 2
+    while (counter <= number) do
+      current_number += 1
+      counter += 1 if is_prime?(current_number)
     end
-    primes.last
+    current_number
   end
 
-  def self.prime?(num)
-    (2..Math.sqrt(num).floor).each do |n|
-      return false if num % n == 0
-    end
-    true
-  end
+  private
 
-  def self.validate(num)
-    raise ArgumentError if num <= 0
-  end
+    def self.is_prime?(number)
+      (2..(Math.sqrt(number).floor)).each do |n|
+        return false if number % n == 0
+      end
+      true
+    end
+
 end
 
+
 class BookKeeping
+
   VERSION = 1
+
 end
