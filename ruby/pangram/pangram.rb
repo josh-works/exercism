@@ -1,13 +1,21 @@
 require 'pry'
-
 class Pangram
 
   def self.pangram?(phrase)
-    phrase.split('').sort.uniq.join.gsub(/[^a-z]/i, '').count
     binding.pry
+    current = phrase.split('').uniq.join.gsub('/[^a-z]/i', '')
+    p current
+    p current.length
+    evaluate_result(current)
   end
-end
 
-class BookKeeping
-  VERSION = 3
+  private
+
+    def self.evaluate_result(phrase)
+      if phrase.length == 26
+         true
+      else
+        false
+      end
+    end
 end
