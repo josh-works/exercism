@@ -1,10 +1,10 @@
 class TwelveDays
   
   DAY_COUNT = ["first", "second", "third", "fourth", "fifth", "sixth", "seventh",
-      "eighth", "ninth", "tenth", "eleventh", "twelth"]
+      "eighth", "ninth", "tenth", "eleventh", "twelfth"]
       
   GIFT_LIST = [
-    "a Partridge in a Pear Tree",
+    "and a Partridge in a Pear Tree",
     "two Turtle Doves",
     "three French Hens",
     "four Calling Birds",
@@ -22,10 +22,6 @@ class TwelveDays
     "On the #{DAY_COUNT[integer - 1]} day of Christmas my true love gave to me: "
   end
   
-  def self.add_and(list)
-    list[-1].prepend("and ") if list.size > 1
-  end
-  
   def self.reverse_gifts_by_day(count)
     acc = []
     count.times do |n|
@@ -38,24 +34,23 @@ class TwelveDays
     output = "" 
     output << integer_to_word(count)
     gifts = reverse_gifts_by_day(count)
-    add_and(gifts)
     output << gifts.join(", ")
+    output.gsub!(/me: and a Partridge/, "me: a Partridge")
     output + "."
   end
   
-  def self.append_song_lines(total_song, new_line)
-    return total_song if total_song.length == 0
-    total_song + "\n\n" + new_line
-  end
-  
   def self.song(count = 12)
-    output = ""
-    count.times do |num|
+    song = count.times.reduce("") do |res, num|
       new_line = song_day(num + 1)
-      require "pry"; binding.pry
-      output = append_song_lines(output, new_line)
+      if res.length != 0
+        res << "\n\n"
+        res << new_line
+      else
+        res << new_line
+      end
+      res
     end
-    output
+    song << "\n"
   end
   
   
