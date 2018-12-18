@@ -1,19 +1,10 @@
 class Hamming
-
-  def self.compute(string1, string2)
-    raise ArgumentError if (string1.length != string2.length)
-    counter = 0
-    string1.split('').each_with_index do |char, index|
-      if char != string2[index]
-        counter += 1
-      end
+  def self.method_missing(method, *args)
+    super unless %w[compute].include? method.to_s
+    raise ArgumentError if (args[0].length != args[1].length)
+    args[0].split('').each_with_index.reduce(0) do |counter, (char, index)|
+      counter += 1 if char != args[1][index]
+      counter
     end
-    counter
   end
-
-end
-
-
-class BookKeeping
-  VERSION = 3
 end
