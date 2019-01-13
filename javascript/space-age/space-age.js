@@ -4,37 +4,33 @@ class SpaceAge{
 }
   onEarth(){
     let years = this.seconds/31557600
-    return parseFloat(years.toFixed(2))
+    return this.formatNumber(years)
   }
-  
   onMercury() {
-    var earth = this.seconds/31557600
-    return parseFloat((earth/0.2408467).toFixed(2))
+    return this.formatNumber(this.onEarth()/0.2408467)
   }
-  
   onVenus(){
-    var earth = this.seconds/31557600
-    return parseFloat((earth/0.61519726).toFixed(2))
+    let years = this.seconds/31557600
+    return this.formatNumber(years/0.61519726)
   }
   onMars(){
-    var earth = this.seconds/31557600
-    return parseFloat((earth/1.8808158).toFixed(2))
+    return this.formatNumber(this.onEarth()/1.8808158)
   }
   onJupiter(){
-    var earth = this.seconds/31557600
-    return parseFloat((earth/11.862615).toFixed(2))
+    return this.formatNumber(this.onEarth()/11.862615)
   }
   onSaturn(){
-    var earth = this.seconds/31557600
-    return parseFloat((earth/29.447498).toFixed(2))
+    return this.formatNumber(this.onEarth()/29.447498)
   }
   onUranus(){
-    var earth = this.seconds/31557600
-    return parseFloat((earth/84.016846).toFixed(2))
+    return this.formatNumber(this.onEarth()/84.016846)
   }
-  onNap(){
-    var earth = this.seconds/31557600
-    return parseFloat((earth/164.79132).toFixed(2))
+  onNeptune(){
+    return this.formatNumber(this.onEarth()/164.79132)
+  }
+  
+  formatNumber(num){
+    return Number(parseFloat(num.toFixed(2)))
   }
 }
 
